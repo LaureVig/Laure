@@ -14,8 +14,9 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-import openclassroom.Noms;
-import tables.Utilisateur;
+import openclassroom.Composants;
+import tables.Composant;
+import tables.TypeComposant;
 
 
 /**
@@ -32,22 +33,24 @@ public class Test extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        Noms tableNoms = new Noms();
-        request.setAttribute("utilisateurs", tableNoms.recupererUtilisateurs());
-        this.getServletContext().getRequestDispatcher("/WEB-INF/bonjour.jsp").forward(request, response);
+        Composants tableNoms = new Composants();
+        TypesComp tableTypes = new TypesComp();
+        request.setAttribute("types", tableTypes.recupererTypes());
+        request.setAttribute("composants", tableNoms.recupererComposants());
+        this.getServletContext().getRequestDispatcher("/WEB-INF/composants.jsp").forward(request, response);
     }
 
     public void doPost( HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException {
-        Utilisateur utilisateur = new Utilisateur();
-        utilisateur.setNom(request.getParameter("nom"));
-        utilisateur.setPrenom(request.getParameter("prenom"));
+        Composant composant =new Composant();
+        composant.setNom(request.getParameter("nom"));
+        composant.setLibelle(request.getParameter("libelle"));
         
-        Noms tableNoms = new Noms();
-        tableNoms.ajouterUtilisateur(utilisateur);
+        Composants composants = new Composants();
+        composants.ajouterComposant(composant);
         
-        request.setAttribute("utilisateurs", tableNoms.recupererUtilisateurs());
+        request.setAttribute("composants", composants.recupererComposants());
         
-        this.getServletContext().getRequestDispatcher("/WEB-INF/bonjour.jsp").forward(request, response);
+        this.getServletContext().getRequestDispatcher("/WEB-INF/composants.jsp").forward(request, response);
     }
     
     
