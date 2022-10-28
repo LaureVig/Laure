@@ -16,7 +16,6 @@ public class TypesComp {
     private Connection connexion;
     
     public String recupererNom(int id) {
-    	List<TypeComposant> comps = new ArrayList<TypeComposant>();
     	PreparedStatement statement = null;
     	ResultSet resultat = null;
     	String nom = null;

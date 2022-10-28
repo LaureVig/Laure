@@ -17,7 +17,8 @@ public class Composant {
 	public String getNom_type_composant() {
 		return nom_type_composant;
 	}
-	public void setNom_type_composant( int id) {
+	public void setNom_type_composant(int id) {
+		
 		TypesComp test = new TypesComp();
 		this.nom_type_composant = test.recupererNom(id_type_composant);
 	}
@@ -74,6 +75,10 @@ public class Composant {
 	}
 	public void setId_type_composant(int id_type_composant) {
 		this.id_type_composant = id_type_composant;
+	}
+	public void setNom_type_composant(String string) {
+		// TODO Auto-generated method stub
+		this.nom_type_composant=string;
 	}
 	
 	

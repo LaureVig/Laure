@@ -36,16 +36,7 @@ public class Test extends HttpServlet {
         Composants tableNoms = new Composants();
         TypesComp tableTypes = new TypesComp();
         request.setAttribute("types", tableTypes.recupererTypes());
-        request.setAttribute("composants", tableNoms.recupererComposants());
-        Composants comps = new Composants();
-        //comps.recupererComposants().
-        for (int i=0; i< tableNoms.recupererComposants().size();i++) {
-        	Composant comp = tableNoms.recupererComposants().get(i);
-        	comp.setNom_type_composant(comp.getId_type_composant());
-        	System.out.println("nom : "+comp.getNom_type_composant());
-        	comps.ajouterComposant(comp);
-        	System.out.println(tableNoms.recupererComposants().get(i).getNom_type_composant());
-        }
+        request.setAttribute("composants", tableNoms.recupererComposants());       
         this.getServletContext().getRequestDispatcher("/WEB-INF/composants.jsp").forward(request, response);
     }
 

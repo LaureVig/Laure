@@ -45,6 +45,16 @@ public class Composants {
                 comp.setAttribut_4(attribut_4);
                 comp.setAttribut_5(attribut_5);
                 comp.setId_type_composant(id_type_composant);
+                PreparedStatement statement2 = connexion.prepareStatement("SELECT * FROM type_composant WHERE id_type_composant=?");
+        		statement2.setInt(1, id_type_composant );
+        		ResultSet resultat2=statement2.executeQuery();
+        		String nom2 = "";
+        		int i = 0;
+        		while (resultat2.next()) {
+        			i++;
+        			nom2 = resultat2.getString("nom");
+        		}
+        		comp.setNom_type_composant(nom2);
                 comps.add(comp);
             }
         } catch (SQLException e) {
