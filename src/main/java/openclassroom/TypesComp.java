@@ -15,6 +15,35 @@ import tables.TypeComposant;
 public class TypesComp {
     private Connection connexion;
     
+    public String recupererNom(int id) {
+    	List<TypeComposant> comps = new ArrayList<TypeComposant>();
+    	PreparedStatement statement = null;
+    	ResultSet resultat = null;
+    	String nom = null;
+    	loadDatabase();
+    	try {
+    		statement = connexion.prepareStatement("SELECT * FROM type_composant WHERE id_type_composant=?");
+    		statement.setInt(1, id );
+    		resultat=statement.executeQuery();
+    		
+    		while (resultat.next()) {
+    			nom = resultat.getString("nom");
+    		}
+    	} catch (SQLException e) {
+    	} finally {
+    		// Fermeture de la connexion
+    		try {
+    			if (resultat != null)
+    				resultat.close();
+    			if (statement != null)
+    				statement.close();
+    			if (connexion != null)
+    				connexion.close();
+    		} catch (SQLException ignore) {
+    		}
+    	}
+    	return nom;
+    }
     public List<TypeComposant> recupererTypes() {
     	List<TypeComposant> comps = new ArrayList<TypeComposant>();
     	Statement statement = null;

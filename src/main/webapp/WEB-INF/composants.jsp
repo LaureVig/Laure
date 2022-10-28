@@ -86,7 +86,7 @@
 						<td><c:out value="${composant.attribut_3 }" /></td>
 						<td><c:out value="${composant.attribut_4 }" /></td>
 						<td><c:out value="${composant.attribut_5 }" /></td>
-						<td><c:out value="${composant.id_type_composant }" /></td>
+						<td><c:out value="${composant.nom_type_composant }" /></td>
 					</tr>
 				</c:forEach>
 

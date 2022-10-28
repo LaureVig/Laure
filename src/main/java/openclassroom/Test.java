@@ -37,6 +37,15 @@ public class Test extends HttpServlet {
         TypesComp tableTypes = new TypesComp();
         request.setAttribute("types", tableTypes.recupererTypes());
         request.setAttribute("composants", tableNoms.recupererComposants());
+        Composants comps = new Composants();
+        //comps.recupererComposants().
+        for (int i=0; i< tableNoms.recupererComposants().size();i++) {
+        	Composant comp = tableNoms.recupererComposants().get(i);
+        	comp.setNom_type_composant(comp.getId_type_composant());
+        	System.out.println("nom : "+comp.getNom_type_composant());
+        	comps.ajouterComposant(comp);
+        	System.out.println(tableNoms.recupererComposants().get(i).getNom_type_composant());
+        }
         this.getServletContext().getRequestDispatcher("/WEB-INF/composants.jsp").forward(request, response);
     }
 
@@ -50,10 +59,12 @@ public class Test extends HttpServlet {
         composant.setAttribut_4(request.getParameter("attribut_4"));
         composant.setAttribut_5(request.getParameter("attribut_5"));
         composant.setId_type_composant(Integer.parseInt(request.getParameter("id_type_composant")));
-        System.out.println("type de composant"+composant.getId_type_composant());
+        composant.setNom_type_composant(composant.getId_type_composant());
+        System.out.println("nom : "+composant.getNom_type_composant());
         Composants composants = new Composants();
         composants.ajouterComposant(composant);
         request.setAttribute("composants", composants.recupererComposants());
+        request.setAttribute("nomType", composants);
         TypesComp tableTypes = new TypesComp();
         request.setAttribute("types", tableTypes.recupererTypes());
         this.getServletContext().getRequestDispatcher("/WEB-INF/composants.jsp").forward(request, response);

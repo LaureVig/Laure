@@ -12,6 +12,8 @@ public class TypeComposant {
 	private String attribut_4;
 	private String attribut_5;
 	private String verrou;
+	
+	
 	public int getId_type_composant() {
 		return id_type_composant;
 	}

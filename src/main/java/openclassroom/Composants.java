@@ -34,6 +34,7 @@ public class Composants {
                 String attribut_3 = resultat.getString("attribut_3");
                 String attribut_4 = resultat.getString("attribut_4");
                 String attribut_5 = resultat.getString("attribut_5");
+                int id_type_composant = resultat.getInt("id_type_composant");
                 
                 Composant comp = new Composant();
                 comp.setNom(nom);
@@ -43,12 +44,7 @@ public class Composants {
                 comp.setAttribut_3(attribut_3);
                 comp.setAttribut_4(attribut_4);
                 comp.setAttribut_5(attribut_5);
-//                preparedStatement.setString(3, composant.getAttribut_1());
-//                preparedStatement.setString(4, composant.getAttribut_2()); 
-//                preparedStatement.setString(5, composant.getAttribut_3());
-//                preparedStatement.setString(6, composant.getAttribut_4());
-//                preparedStatement.setString(7, composant.getAttribut_5());
-//                preparedStatement.setInt(8, composant.getId_type_composant());
+                comp.setId_type_composant(id_type_composant);
                 comps.add(comp);
             }
         } catch (SQLException e) {

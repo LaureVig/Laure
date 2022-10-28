@@ -1,5 +1,7 @@
 package tables;
 
+import openclassroom.TypesComp;
+
 public class Composant {
 	private int id;
 	private String nom;
@@ -10,6 +12,15 @@ public class Composant {
 	private String attribut_4;
 	private String attribut_5;
 	private int id_type_composant;
+	private String nom_type_composant;
+	
+	public String getNom_type_composant() {
+		return nom_type_composant;
+	}
+	public void setNom_type_composant( int id) {
+		TypesComp test = new TypesComp();
+		this.nom_type_composant = test.recupererNom(id_type_composant);
+	}
 	public int getId() {
 		return id;
 	}
