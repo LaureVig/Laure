@@ -52,7 +52,4 @@ public class Test extends HttpServlet {
         
         this.getServletContext().getRequestDispatcher("/WEB-INF/composants.jsp").forward(request, response);
     }
-    
-    
-
 }
