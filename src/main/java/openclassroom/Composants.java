@@ -90,7 +90,7 @@ public class Composants {
         
         try {
             PreparedStatement preparedStatement = connexion.prepareStatement("INSERT INTO composant (id_comp,nom,  libelle, attribut_1, attribut_2,attribut_3, attribut_4,attribut_5, id_type_composant)\r\n"
-            		+ " VALUES (DEFAULT, ?, ?, ?, ?,?,?,?, (SELECT id_type_composant FROM type_composant WHERE nom=?));");
+            		+ " VALUES (DEFAULT, ?, ?, ?, ?,?,?,?, (SELECT id_type_composant FROM type_composant WHERE id_type_composant=?));");
             preparedStatement.setString(1, composant.getNom());
             preparedStatement.setString(2, composant.getLibelle());
             preparedStatement.setString(3, composant.getAttribut_1());
@@ -98,6 +98,7 @@ public class Composants {
             preparedStatement.setString(5, composant.getAttribut_3());
             preparedStatement.setString(6, composant.getAttribut_4());
             preparedStatement.setString(7, composant.getAttribut_5());
+            System.out.println(composant.getId_type_composant());
             preparedStatement.setInt(8, composant.getId_type_composant());
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
