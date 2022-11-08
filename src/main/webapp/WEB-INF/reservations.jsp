@@ -20,6 +20,10 @@
 		<h1>Création d'une réservation</h1>
 		<form method="post" action="composants">
 			<p>
+				<label for="id_user" class="form-label">Utilisateur </label> <input type="text"
+					name="id_user" id="id_user" class="form-control" />
+			</p>
+			<p>
 				<label for="nom" class="form-label">Nom </label> <input type="text"
 					name="nom" id="nom" class="form-control" />
 			</p>
@@ -28,31 +32,31 @@
 					type="text" name="libelle" id="libelle" class="form-control" />
 			</p>
 			<p>
-				<label for="attribut_1" class="form-label">Attribut 1 </label> <input
-					type="text" name="attribut_1" id="attribut_1" class="form-control" />
+				<label for="indice" class="form-label">Indice </label> <input
+					type="number" name="indice" id="indice" class="form-control" />
 			</p>
 			<p>
-				<label for="attribut_2" class="form-label">Attribut 2 </label> <input
-					type="text" name="attribut_2" id="attribut_2" class="form-control" />
+				<label for="date_creation" class="form-label">Date de création </label> <input
+					type="datetime-local" name="date_creation" id="date_creation" class="form-control" />
 			</p>
 			<p>
-				<label for="attribut_3" class="form-label">Attribut 3 </label> <input
-					type="text" name="attribut_3" id="attribut_3" class="form-control" />
+				<label for="date_liberation" class="form-label">Date de libération </label> <input
+					type="datetime-local" name="date_liberation" id="date_liberation" class="form-control" />
 			</p>
 			<p>
-				<label for="attribut_4" class="form-label">Attribut 4 </label> <input
-					type="text" name="attribut_4" id="attribut_4" class="form-control" />
+				<label for="actif" class="form-label">Actif </label> <input
+					type="radio" name="actif" id="actif" class="form-control" />
 			</p>
 			<p>
-				<label for="attribut_5" class="form-label">Attribut 5 </label> <input
-					type="text" name="attribut_5" id="attribut_5" class="form-control" />
+				<label for="commentaire" class="form-label">Commentaire </label> <input
+					type="text" name="commentaire" id="commentaire" class="form-control" />
 			</p>
 
 			<p>
-				<label for="id_type_composant" class="form-label">Type de
-					composant </label> <select name="id_type_composant" class="form-control">
-					<c:forEach var="composant" items="${ types }">
-						<option value="${composant.id_type_composant}">${ composant.nom }</option>
+				<label for="id_env" class="form-label">Environnement </label> 
+				<select name="id_env" class="form-control">
+					<c:forEach var="env" items="${ envs }">
+						<option value="${env.id_env}">${ env.nom }</option>
 					</c:forEach>
 				</select>
 			</p>
@@ -64,10 +68,10 @@
 		<table class="table table-striped table-bordered">
 			<thead>
 				<tr>
+					<th>id_reserv </th>
+					<th>identifiant user</th>
 					<th>Nom</th>
 					<th>Libellé</th>
-                	<th>identifiant user</th>
-                 	<th>id_reserv </th>
             		<th>indice </th>
             		<th>date_creation </th>
             		<th>date_libération </th>
@@ -78,10 +82,10 @@
 			<tbody>
 				<c:forEach var="resa" items="${ reservations }">
 					<tr>
+						<td><c:out value="${resa.id_reserv }" /></td>
+						<td><c:out value="${resa.id_user }" /></td>
 						<td><c:out value="${resa.nom }" /></td>
 						<td><c:out value="${resa.libelle }" /></td>
-						<td><c:out value="${resa.id_user }" /></td>
-						<td><c:out value="${resa.id_reserv }" /></td>
 						<td><c:out value="${resa.indice }" /></td>
 						<td><c:out value="${resa.date_creation }" /></td>
 						<td><c:out value="${resa.date_liberation }" /></td>

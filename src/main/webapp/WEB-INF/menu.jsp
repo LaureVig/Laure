@@ -10,7 +10,7 @@
 		</button>
 		<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
 			<div class="navbar-nav">
-				<a class="nav-item nav-link" href="#">Accueil</a> 
+				<a class="nav-item nav-link" href="/Laure/">Accueil</a> 
 				<a class="nav-item nav-link" href="/Laure/composants">Liste et ajout de composant</a> 
 				<a class="nav-item nav-link" href="/Laure/reservations">Liste et ajout de réservations</a> 
 				<a class="nav-item nav-link disabled" href="#">Disabled</a>
